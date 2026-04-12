@@ -13,7 +13,7 @@ export default function About() {
     setLeftContent(
       "/about-me.jpg", 
       "About me", 
-      "AI Engineer building intelligent, real-world systems."
+      "Conviction, Curiosity, and the Craft of AI."
     );
   }, [setLeftContent]);
 
@@ -31,33 +31,28 @@ export default function About() {
       <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
         <BlurReveal delay={0.1}>
           <p>
-            Hi, I&apos;m Harsh Solanki — an AI Engineer passionate about turning ideas into intelligent, real-world systems. It started long before the code. Growing up, films like <em>A.I.</em>, <em>The Matrix</em>, and <em>Tron</em> didn&apos;t just entertain me — they made me ask hard questions about intelligence, humanity, and what we&apos;re really building when we build AI. That philosophical lens never left me. It just found a new home in my work.
+            Hi, I&apos;m Harsh Solanki, a final-year Computer Science student specializing in AI/ML, building intelligent systems that are <strong>practical, private, and purposeful</strong>.
           </p>
         </BlurReveal>
         <BlurReveal delay={0.2}>
           <p>
-            Today I thrive on problem-solving, architecture, and finding the moments where AI can genuinely make something better. When I encounter a challenge, my mind naturally maps it — where does intelligence fit here? What would a well-designed system look like? How do we make it useful without losing sight of why it matters?
+            It started long before the code. Growing up, films like <strong>A.I</strong>, <strong>The Matrix</strong>, and <strong>Tron</strong>{" "}
+            didn&apos;t just entertain me. They made me ask hard questions about intelligence, humanity, and what we&apos;re truly building when we build AI. That philosophical lens never left me. It just found a new home in my work.
           </p>
         </BlurReveal>
         <BlurReveal delay={0.3}>
           <p>
-            With a mix of curiosity, conviction, and a love for bold ideas, I build systems that are practical, private, and purposeful. From fine-tuned models to agentic workflows — I care about the craft as much as the outcome.
+            Today I work at the intersection of architecture and intention. When I encounter a problem, my instinct is to map it. <strong>Where does intelligence fit? What should the system look like? How do we make it actually work?</strong> From fine-tuned vision models and locally deployed LLMs to production-ready agentic workflows, I care about the craft as much as the outcome.
           </p>
         </BlurReveal>
         <BlurReveal delay={0.4}>
           <p>
-            If you&apos;re working on something meaningful and think AI belongs in it — let&apos;s connect.
+            With conviction and curiosity, I build systems that matter.
           </p>
         </BlurReveal>
       </div>
 
-      <div className="mt-16 flex justify-end">
-        <BlurReveal delay={0.5}>
-          <span className="font-serif italic text-4xl font-light tracking-widest text-foreground">
-            Harsh
-          </span>
-        </BlurReveal>
-      </div>
+
     </motion.div>
   );
 }
