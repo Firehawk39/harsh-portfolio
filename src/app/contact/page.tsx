@@ -18,10 +18,10 @@ export default function Contact() {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="flex flex-col pt-32 pb-12 w-full max-w-2xl"
+      initial={{ opacity: 0, y: 15, filter: "blur(10px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      className="flex flex-col pt-32 pb-12 w-full max-w-2xl px-4 md:px-0"
     >
       <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 text-green-600 dark:bg-green-500/20 dark:text-green-400 font-medium text-sm w-fit mb-6">
         <span className="w-2 h-2 rounded-full bg-green-500" />

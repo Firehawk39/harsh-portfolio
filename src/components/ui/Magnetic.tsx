@@ -30,7 +30,7 @@ export default function Magnetic({ children }: { children: React.ReactNode }) {
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       animate={{ x, y }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+      transition={{ type: "spring", stiffness: 80, damping: 20, mass: 0.5 }}
     >
       {children}
     </motion.div>

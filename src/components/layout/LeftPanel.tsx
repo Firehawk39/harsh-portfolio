@@ -16,10 +16,10 @@ export function LeftPanel() {
       <AnimatePresence mode="popLayout">
         <motion.div
           key={leftImageUrl}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0 w-full h-full"
         >
           <Image
@@ -57,10 +57,10 @@ export function LeftPanel() {
             {leftImageSubCaption && (
               <motion.p
                 key={leftImageSubCaption}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4, delay: 0.05 }}
+                initial={{ opacity: 0, scale: 1.1, filter: "blur(15px)" }}
+                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, scale: 0.95, filter: "blur(15px)" }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 className="text-white/90 text-base lg:text-lg font-medium"
               >
                 {leftImageSubCaption}

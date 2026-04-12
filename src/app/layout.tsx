@@ -36,7 +36,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body 
-        className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-300 overflow-y-auto"
+        className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-300"
         suppressHydrationWarning
       >
         <ThemeProvider>

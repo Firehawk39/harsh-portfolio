@@ -61,10 +61,10 @@ export default function Guides() {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="flex flex-col pt-32 pb-12 w-full max-w-2xl"
+      initial={{ opacity: 0, y: 15, filter: "blur(10px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      className="flex flex-col pt-32 pb-12 w-full max-w-2xl px-4 md:px-0"
     >
       <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
         Guides & Tutorials

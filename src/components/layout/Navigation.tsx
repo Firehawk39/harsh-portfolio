@@ -42,8 +42,8 @@ export function Navigation() {
                           className="absolute inset-x-0 bottom-0 h-0.5 bg-accent"
                           transition={{
                             type: "spring",
-                            stiffness: 300,
-                            damping: 30,
+                            stiffness: 350,
+                            damping: 25,
                           }}
                         />
                       )}

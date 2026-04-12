@@ -35,7 +35,7 @@ export function ThemeToggle() {
       {/* Active Pill */}
       <div 
         className={cn(
-          "absolute top-1 w-[26px] h-[26px] rounded-full bg-background shadow-md transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "absolute top-1 w-[26px] h-[26px] rounded-full bg-background shadow-md transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
           theme === "dark" ? "translate-x-[30px]" : "translate-x-0"
         )}
       />

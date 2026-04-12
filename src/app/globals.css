@@ -45,35 +45,35 @@ body {
 /* Or just leave it clean for maximum performance */
 
 .minimal-scrollbar::-webkit-scrollbar {
-  height: 4px;
+  height: 2px;
 }
 .minimal-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
 .minimal-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--muted-foreground);
-  opacity: 0.2;
+  background: transparent;
   border-radius: 10px;
 }
-.minimal-scrollbar:hover::-webkit-scrollbar-thumb {
-  opacity: 0.5;
+.minimal-scrollbar:hover::-webkit-scrollbar-thumb,
+.minimal-scrollbar:active::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  opacity: 0.3;
 }
 
 .mask-fade-right {
-  mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, black 80%, transparent 100%);
 }
 
 /* Custom Scrollbar for smooth scrolling behavior */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--muted);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--muted-foreground);
-  border-radius: 10px;
-  border: 2px solid var(--muted);
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--foreground);

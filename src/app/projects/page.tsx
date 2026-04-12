@@ -61,10 +61,10 @@ export default function Projects() {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="flex flex-col pt-32 pb-12 w-full max-w-2xl"
+      initial={{ opacity: 0, y: 15, filter: "blur(10px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      className="flex flex-col pt-32 pb-12 w-full max-w-2xl px-4 md:px-0"
     >
       <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
         Projects
@@ -79,7 +79,7 @@ export default function Projects() {
           <div 
             key={project.id}
             onMouseEnter={() => setLeftContent(project.image, project.name, project.category)}
-            className="group flex items-center justify-between py-6 border-b border-border cursor-pointer transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02] -mx-4 px-4 rounded-xl"
+            className="group flex items-center justify-between py-6 border-b border-border cursor-pointer transition-colors hover:bg-accent/[0.04] dark:hover:bg-accent/[0.06] -mx-4 px-4 rounded-xl"
           >
             <div className="flex items-center gap-3 w-1/3">
               <h3 className="text-lg font-medium text-foreground group-hover:translate-x-2 transition-transform duration-300">
