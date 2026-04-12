@@ -55,9 +55,9 @@ export default function Home() {
 
       {/* Main Heading Text */}
       <h1 className="text-5xl md:text-6xl/tight font-bold tracking-tight mb-10">
-        On a journey to bring AI
+        On a journey to bring AI from 
         <br />
-        from concept to <span className="font-serif font-bold text-muted-foreground italic">reality.</span>
+        concept to <span className="font-serif font-bold text-muted-foreground">Reality.</span>
       </h1>
 
       {/* Call to Actions - Brighter and more concise shadows */}
