@@ -19,11 +19,11 @@ export function Navigation() {
   const pathname = usePathname();
 
   return (
-    <nav className="w-full py-4 lg:py-6 lg:px-12 z-50">
-      <div className="flex items-center justify-between w-full max-w-2xl">
-        {/* Scrollable Container for Links */}
+    <nav className="w-full py-6 lg:px-12 z-50">
+      <div className="flex items-center justify-between w-full max-w-3xl">
+        {/* Integrated Links */}
         <div className="flex overflow-x-auto minimal-scrollbar mask-fade-right lg:mask-none flex-1">
-          <ul className="flex items-center gap-1 min-w-max">
+          <ul className="flex items-center gap-2 min-w-max">
             {navItems.map((item) => {
               const isActive = pathname === item.path;
               return (
@@ -32,14 +32,14 @@ export function Navigation() {
                     <Link
                       href={item.path}
                       className={cn(
-                        "relative block px-3 py-2 text-[16px] lg:text-[17px] font-semibold tracking-tight transition-colors hover:text-foreground",
-                        isActive ? "text-foreground" : "text-muted-foreground"
+                        "relative block px-4 py-2 text-[15px] lg:text-[16px] font-bold tracking-tight transition-all duration-300",
+                        isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                       )}
                     >
                       {isActive && (
                         <motion.div
                           layoutId="nav-active-pill"
-                          className="absolute inset-0 bg-accent/20 rounded-full -z-10"
+                          className="absolute inset-x-0 bottom-0 h-0.5 bg-accent"
                           transition={{
                             type: "spring",
                             stiffness: 300,
@@ -56,7 +56,7 @@ export function Navigation() {
           </ul>
         </div>
         
-        {/* Theme Toggle - Now integrated but without the isolated rectangle look */}
+        {/* Integrated Theme Toggle */}
         <div className="flex items-center ml-4">
           <ThemeToggle />
         </div>
