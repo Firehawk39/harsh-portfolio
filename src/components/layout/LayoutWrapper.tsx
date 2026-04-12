@@ -18,8 +18,8 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
 
       {/* Scrolling Right Content */}
       <div className="w-full lg:w-[55%] flex flex-col min-h-screen">
-        {/* Navigation - Always at the top of content section */}
-        <div className="sticky top-0 bg-background/80 backdrop-blur-md z-40 lg:relative lg:bg-transparent lg:backdrop-blur-none -mt-4 lg:mt-0">
+        {/* Navigation - Integrated into page flow */}
+        <div className="sticky top-0 z-40 lg:relative lg:bg-transparent -mt-4 lg:mt-0">
           <Navigation />
         </div>
         
