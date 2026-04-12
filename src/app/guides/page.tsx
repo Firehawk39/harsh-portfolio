@@ -110,9 +110,9 @@ export default function Guides() {
                   src={post.image} 
                   alt={post.title}
                   fill
+                  unoptimized
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  quality={80}
                 />
               </div>
               <div className="flex flex-col gap-3">
