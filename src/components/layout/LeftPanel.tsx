@@ -27,9 +27,9 @@ export function LeftPanel() {
             alt={leftImageCaption || "Showcase Image"}
             fill
             priority
-            sizes="(max-width: 1024px) 100vw, 45vw"
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
-            quality={85}
+            quality={100}
           />
         </motion.div>
       </AnimatePresence>
