@@ -55,7 +55,7 @@ export default function Home() {
 
       {/* Main Heading Text */}
       <h1 className="text-5xl md:text-6xl/tight font-bold tracking-tight mb-10">
-        On a journey to harness 
+        On a journey to turn 
         <br />
         the power of AI into <span className="font-serif font-bold text-muted-foreground">Reality</span>
       </h1>
