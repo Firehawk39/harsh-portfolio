@@ -20,7 +20,7 @@ const sourceSerif4 = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  title: "Harsh Solanki | Portfolio",
+  title: "Harsh Portfolio",
   description: "Personal portfolio of Harsh Solanki, Software Engineer.",
 };
 

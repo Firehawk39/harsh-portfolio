@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { useLayoutStore } from "@/store/useLayoutStore";
 import Link from "next/link";
 import Magnetic from "@/components/ui/Magnetic";
@@ -17,24 +17,31 @@ export default function Home() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
+  // Add smoothing springs to reduce calculation frequency and jitter
+  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
+
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    // Only add listener if user is not on a touch device
+    if (window.matchMedia("(hover: hover)").matches) {
+      const handleMouseMove = (e: MouseEvent) => {
+        mouseX.set(e.clientX);
+        mouseY.set(e.clientY);
+      };
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }
   }, [mouseX, mouseY]);
 
   return (
     <>
       {/* Background Glow Spell */}
       <motion.div
-        className="fixed inset-0 pointer-events-none z-[-1] opacity-50"
+        className="fixed inset-0 pointer-events-none z-[-1] opacity-40 hidden md:block"
         style={{
           background: useTransform(
-            [mouseX, mouseY],
-            ([x, y]) => `radial-gradient(600px circle at ${x}px ${y}px, rgba(16, 185, 129, 0.15), transparent 80%)`
+            [springX, springY],
+            ([x, y]) => `radial-gradient(800px circle at ${x}px ${y}px, rgba(16, 185, 129, 0.12), transparent 70%)`
           ),
         }}
       />

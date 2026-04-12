@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLayoutStore } from "@/store/useLayoutStore";
@@ -72,7 +73,7 @@ export default function Guides() {
       <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
         Detailed guides, step-by-step tutorials, and unbiased technical articles on hardware, homelabs, and software engineering.
       </p>
-
+      
       {/* Category Filter */}
       <div className="flex flex-wrap items-center gap-2 mb-12">
         {categories.map((category) => (
@@ -105,11 +106,13 @@ export default function Guides() {
               className="flex flex-col gap-6 cursor-pointer group"
             >
               <div className="w-full aspect-[2/1] rounded-2xl overflow-hidden relative bg-muted">
-                {/* Fallback image if next/image needs domains configured, using plain img for now */}
-                <img 
+                <Image 
                   src={post.image} 
                   alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  quality={80}
                 />
               </div>
               <div className="flex flex-col gap-3">

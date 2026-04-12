@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLayoutStore } from "@/store/useLayoutStore";
 import { usePathname } from "next/navigation";
@@ -13,16 +14,24 @@ export function LeftPanel() {
     <div className="relative w-full h-full bg-muted rounded-[2rem] overflow-hidden shadow-sm">
       {/* Dynamic Background Image Sequence */}
       <AnimatePresence mode="popLayout">
-        <motion.img
+        <motion.div
           key={leftImageUrl}
-          src={leftImageUrl}
-          alt={leftImageCaption || "Showcase Image"}
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+          className="absolute inset-0 w-full h-full"
+        >
+          <Image
+            src={leftImageUrl}
+            alt={leftImageCaption || "Showcase Image"}
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 45vw"
+            className="object-cover"
+            quality={85}
+          />
+        </motion.div>
       </AnimatePresence>
 
 
