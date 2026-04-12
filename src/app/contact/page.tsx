@@ -12,8 +12,8 @@ export default function Contact() {
     // Set the left panel image for the Contact page
     setLeftContent(
       "/contact.jpg", 
-      "Open for Business", 
-      "Seeking high-impact roles and partnerships"
+      "Get in touch", 
+      "Let's build something amazing together"
     );
   }, [setLeftContent]);
 
@@ -28,50 +28,31 @@ export default function Contact() {
         Hiring? <br />
         <span className="text-muted-foreground font-serif italic">Let&apos;s talk business</span>
       </h1>
-      
-      <p className="text-muted-foreground text-lg mb-16 leading-relaxed max-w-xl">
-        I&apos;m currently open to new opportunities and collaborations. If you have a role or a project that aligns with my expertise in AI and engineering, feel free to reach out.
-      </p>
 
       {/* Contact Information Grid */}
       <div className="flex flex-col gap-10 mb-20">
-        <div className="flex items-start gap-6 group">
-          <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-            📧
-          </div>
-          <div className="flex flex-col gap-1">
-            <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Email me</p>
-            <a 
-              href="mailto:harsh.solanki1520@gmail.com" 
-              className="text-xl md:text-2xl font-semibold hover:text-accent transition-colors underline-offset-4 hover:underline"
-            >
-              harsh.solanki1520@gmail.com
-            </a>
-          </div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em]">Email</p>
+          <a 
+            href="mailto:harsh.solanki1520@gmail.com" 
+            className="text-xl md:text-2xl font-semibold text-accent hover:text-accent/80 transition-all underline underline-offset-8 decoration-accent/30 hover:decoration-accent"
+          >
+            harsh.solanki1520@gmail.com
+          </a>
         </div>
 
-        <div className="flex items-start gap-6 group">
-          <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-            ⚡
-          </div>
-          <div className="flex flex-col gap-1">
-            <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Availability</p>
-            <p className="text-lg md:text-xl font-medium leading-tight">
-              Actively exploring internship, full-time roles, and project collaboration
-            </p>
-          </div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em]">Availability</p>
+          <p className="text-lg md:text-xl font-medium leading-tight">
+            Actively exploring internship, full-time roles, and project collaboration
+          </p>
         </div>
 
-        <div className="flex items-start gap-6 group">
-          <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-            📍
-          </div>
-          <div className="flex flex-col gap-1">
-            <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Location</p>
-            <p className="text-lg md:text-xl font-medium leading-tight">
-              Open to remote and in-office opportunities across Delhi NCR 🇮🇳
-            </p>
-          </div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em]">Location</p>
+          <p className="text-lg md:text-xl font-medium leading-tight">
+            Open to remote and in-office opportunities across Delhi NCR
+          </p>
         </div>
       </div>
 
@@ -80,19 +61,19 @@ export default function Contact() {
         <p className="text-sm font-bold text-muted-foreground uppercase tracking-[0.2em]">Connect with me</p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <SocialButton 
-            href="https://linkedin.com/in/harsh-solanki-ai" 
+            href="https://www.linkedin.com/in/harsh-solanki-b4360b1b1" 
             label="LinkedIn" 
             icon={<LinkedInIcon />}
             color="hover:bg-[#0077B5] hover:text-white"
           />
           <SocialButton 
-            href="https://github.com/HarshSolanki15" 
+            href="https://github.com/Firehawk39" 
             label="GitHub" 
             icon={<GitHubIcon />}
             color="hover:bg-[#24292e] hover:text-white"
           />
           <SocialButton 
-            href="https://huggingface.co/HarshSolanki" 
+            href="https://huggingface.co/Anachronox39" 
             label="Hugging Face" 
             icon="🤗"
             color="hover:bg-[#FFD21E] hover:text-black"
