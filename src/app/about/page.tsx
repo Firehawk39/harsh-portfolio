@@ -28,7 +28,7 @@ export default function About() {
         A little about me
       </h1>
 
-      <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+      <div className="space-y-6 text-lg text-foreground/90 leading-relaxed font-medium">
         <BlurReveal delay={0.1}>
           <p>
             Hi, I&apos;m Harsh Solanki, a final-year Computer Science student specializing in AI/ML, building intelligent systems that are <strong>practical, private, and purposeful</strong>.

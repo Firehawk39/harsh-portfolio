@@ -1,103 +1,156 @@
 "use client";
 
-import { useEffect } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { useLayoutStore } from "@/store/useLayoutStore";
+import { projectsList } from "./data";
 
-const projectsList = [
-  {
-    id: "luminous",
-    name: "Luminous",
-    category: "Visual Design",
-    year: "2025",
-    isNew: true,
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
-  },
-  {
-    id: "nova",
-    name: "Nova",
-    category: "Product Design",
-    year: "2024",
-    isNew: false,
-    image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2564&auto=format&fit=crop",
-  },
-  {
-    id: "osaka",
-    name: "Osaka",
-    category: "Branding",
-    year: "2023",
-    isNew: false,
-    image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=2564&auto=format&fit=crop",
-  },
-  {
-    id: "atlas",
-    name: "Atlas",
-    category: "Photography",
-    year: "2022",
-    isNew: false,
-    image: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&w=2564&auto=format&fit=crop",
-  },
-  {
-    id: "prism",
-    name: "Prism",
-    category: "UI/UX Design",
-    year: "2021",
-    isNew: false,
-    image: "https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?q=80&w=2564&auto=format&fit=crop",
-  },
-];
+// ─── Single project row ────────────────────────────────────────────────────────
+const ProjectRow = React.memo(({
+  project,
+  index,
+  isHovered,
+  onEnter,
+  onLeave,
+  onClick,
+}: {
+  project: typeof projectsList[0];
+  index: number;
+  isHovered: boolean;
+  onEnter: (i: number) => void;
+  onLeave: () => void;
+  onClick: (id: string) => void;
+}) => (
+  <motion.div
+    onMouseEnter={() => onEnter(index)}
+    onMouseLeave={onLeave}
+    onClick={() => onClick(project.id)}
+    onKeyDown={(e) => e.key === "Enter" && onClick(project.id)}
+    initial={{ opacity: 0, y: 14 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.07 * index, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+    className={`group flex items-center gap-4 py-6 border-b border-border/40 cursor-pointer transition-colors duration-200 ${
+      isHovered ? "border-border/70" : ""
+    }`}
+    role="link"
+    tabIndex={0}
+    aria-label={`View project: ${project.name}`}
+  >
+    {/* Project name + "New" badge */}
+    <div className="flex items-center gap-3 flex-1 min-w-0">
+      <span
+        className={`font-bold text-lg md:text-xl tracking-tight transition-all duration-300 truncate ${
+          isHovered ? "text-foreground translate-x-1" : "text-foreground/85"
+        }`}
+        style={{ transitionProperty: "transform, color" }}
+      >
+        {project.name}
+      </span>
 
+      {project.isNew && (
+        <span className="shrink-0 text-[11px] font-bold text-green-500 bg-green-500/10 px-2 py-0.5 rounded-full tracking-wide">
+          New
+        </span>
+      )}
+    </div>
+
+    {/* Category */}
+    <span className={`hidden sm:block text-sm shrink-0 w-48 text-center transition-colors duration-300 ${isHovered ? "text-muted-foreground/80" : "text-muted-foreground/50"}`}>
+      {project.category}
+    </span>
+
+    {/* Year */}
+    <span className={`text-sm shrink-0 w-12 text-right tabular-nums transition-colors duration-300 ${isHovered ? "text-muted-foreground/70" : "text-muted-foreground/40"}`}>
+      {project.year}
+    </span>
+
+    {/* Arrow */}
+    <motion.span
+      animate={{ x: isHovered ? 0 : -6, opacity: isHovered ? 1 : 0 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className="text-foreground/50 text-base shrink-0 w-5"
+    >
+      →
+    </motion.span>
+  </motion.div>
+));
+
+ProjectRow.displayName = "ProjectRow";
+
+// ─── Page ──────────────────────────────────────────────────────────────────────
 export default function Projects() {
-  const { setLeftContent } = useLayoutStore();
+  const { setLeftContent, setActiveProject, clearActiveProject } = useLayoutStore();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
-    // Set the default left panel image for the Projects page
+    // Set a static hero for the Projects list page
     setLeftContent(
-      projectsList[0].image, 
-      projectsList[0].name, 
-      projectsList[0].category
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2564&auto=format&fit=crop",
+      "Projects",
+      "A collection of AI-driven systems and autonomous workflows."
     );
-  }, [setLeftContent]);
+    setActiveProject(0, projectsList.length);
+    return () => clearActiveProject();
+  }, [setLeftContent, setActiveProject, clearActiveProject]);
+
+  const handleEnter = useCallback(
+    (index: number) => {
+      setHoveredIndex(index);
+      // Only updating active index for the dot indicators
+      setActiveProject(index, projectsList.length);
+    },
+    [setActiveProject]
+  );
+
+  const handleLeave = useCallback(() => {
+    setHoveredIndex(null);
+  }, []);
+
+  const handleClick = useCallback(
+    (id: string) => {
+      router.push(`/projects/${id}`);
+    },
+    [router]
+  );
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 15, filter: "blur(10px)" }}
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col pt-32 pb-12 w-full max-w-2xl px-4 md:px-0"
+      transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+      className="flex flex-col pt-32 pb-16 w-full max-w-2xl px-4 md:px-0"
     >
-      <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+      <motion.h1
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.08, duration: 0.55 }}
+        className="text-4xl md:text-5xl font-bold tracking-tight mb-4"
+      >
         Projects
-      </h1>
-      
-      <p className="text-muted-foreground text-lg mb-12 leading-relaxed">
-        Here&apos;s a collection of the work I&apos;ve had the privilege to bring to life. Each project tells a unique story, crafted with creativity and attention to detail.
-      </p>
+      </motion.h1>
 
-      <div className="flex flex-col w-full border-t border-border">
-        {projectsList.map((project) => (
-          <div 
+      <motion.p
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.15, duration: 0.55 }}
+        className="text-muted-foreground text-base mb-14 leading-relaxed max-w-md"
+      >
+        Here&apos;s a collection of the work I&apos;ve had the privilege to bring to life. Each project tells a unique story, crafted with architectural precision and attention to detail.
+      </motion.p>
+
+      <div className="flex flex-col border-t border-border/40">
+        {projectsList.map((project, index) => (
+          <ProjectRow
             key={project.id}
-            onMouseEnter={() => setLeftContent(project.image, project.name, project.category)}
-            className="group flex items-center justify-between py-6 border-b border-border cursor-pointer transition-colors hover:bg-accent/[0.04] dark:hover:bg-accent/[0.06] -mx-4 px-4 rounded-xl"
-          >
-            <div className="flex items-center gap-3 w-1/3">
-              <h3 className="text-lg font-medium text-foreground group-hover:translate-x-2 transition-transform duration-300">
-                {project.name}
-              </h3>
-              {project.isNew && (
-                <span className="px-2 py-0.5 rounded-full bg-green-500/10 text-green-600 dark:bg-green-500/20 dark:text-green-400 text-xs font-semibold">
-                  New
-                </span>
-              )}
-            </div>
-            <div className="text-muted-foreground w-1/3 text-left">
-              {project.category}
-            </div>
-            <div className="text-muted-foreground text-right">
-              {project.year}
-            </div>
-          </div>
+            project={project}
+            index={index}
+            isHovered={hoveredIndex === index}
+            onEnter={handleEnter}
+            onLeave={handleLeave}
+            onClick={handleClick}
+          />
         ))}
       </div>
     </motion.div>

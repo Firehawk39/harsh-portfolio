@@ -59,25 +59,16 @@ export default function Home() {
         <br />
         from concept to
         <br />
-        <span className="font-serif font-bold text-muted-foreground">Reality.</span>
+        <span className="font-serif font-bold italic text-muted-foreground">Reality.</span>
       </h1>
 
-      {/* Call to Actions - Brighter and more concise shadows */}
       <div className="flex flex-col sm:flex-row gap-4 mb-24">
         <Magnetic>
           <Link 
             href="/contact"
             className="flex h-12 items-center justify-center rounded-full bg-foreground text-background px-8 font-medium transition-all hover:bg-accent hover:shadow-[0_0_30px_var(--accent)] active:scale-95"
           >
-            Book a call
-          </Link>
-        </Magnetic>
-        <Magnetic>
-          <Link 
-            href="/projects"
-            className="flex h-12 items-center justify-center rounded-full bg-muted text-foreground px-8 font-medium transition-all hover:bg-accent hover:text-background hover:shadow-[0_0_30px_var(--accent)] active:scale-95"
-          >
-            View projects
+            Work With Me
           </Link>
         </Magnetic>
       </div>

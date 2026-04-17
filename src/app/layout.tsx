@@ -20,8 +20,15 @@ const sourceSerif4 = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  title: "Harsh Portfolio",
-  description: "Personal portfolio of Harsh Solanki, Software Engineer.",
+  title: "Harsh Solanki | AI Engineer",
+  description: "Portfolio of Harsh Solanki, specializing in Agentic AI, LLM Orchestration, and Production-Grade ML Systems.",
+  keywords: ["AI Engineer", "Agentic AI", "LLM", "Machine Learning", "Software Portfolio", "Harsh Solanki"],
+  openGraph: {
+    title: "Harsh Solanki | AI Engineer",
+    description: "Architecting autonomous systems and intelligent agentic workflows.",
+    type: "website",
+    locale: "en_US",
+  },
 };
 
 export default function RootLayout({
