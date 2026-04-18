@@ -70,7 +70,7 @@ const skillCategories: { title: string; catImage: string; catDesc: string; items
     catDesc: "Tools I use to build autonomous AI agents and workflows.",
     items: [
       { label: "n8n", icon: "https://cdn.simpleicons.org/n8n", image: CAT_IMAGES.agentic, desc: "Designing complex AI-driven workflow automations." },
-      { label: "Claude Code", icon: "/images/skills-icons/claudecode.png", image: CAT_IMAGES.agentic, desc: "Autonomous development using advanced AI coding agents." },
+      { label: "Claude Code", icon: "https://cdn.simpleicons.org/anthropic", image: CAT_IMAGES.agentic, desc: "Autonomous development using advanced AI coding agents." },
       { label: "OpenClaw", lucide: BotMessageSquare, image: CAT_IMAGES.agentic, desc: "Orchestrating multi-agent pipelines at scale." },
       { label: "MCP", lucide: Workflow, image: CAT_IMAGES.agentic, desc: "Model Context Protocol for structured agent communication." },
       { label: "Google Antigravity", icon: "/images/skills-icons/google-antigravity-orig.png", iconInvert: true, image: CAT_IMAGES.agentic, desc: "AI coordination using Google's Antigravity platform." },
