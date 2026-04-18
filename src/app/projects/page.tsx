@@ -85,20 +85,21 @@ export default function Projects() {
   const router = useRouter();
 
   useEffect(() => {
-    const first = projectsList[0];
-    setLeftContent(first.image, first.name, first.desc);
-    setActiveProject(0, projectsList.length);
+    // Set a static hero for the Projects list page
+    setLeftContent(
+      "/projects.jpg",
+      "Projects",
+      "A collection of AI-driven systems and autonomous workflows."
+    );
+    // Removing setActiveProject call to hide the carousel dots
     return () => clearActiveProject();
-  }, [setLeftContent, setActiveProject, clearActiveProject]);
+  }, [setLeftContent, clearActiveProject]);
 
   const handleEnter = useCallback(
     (index: number) => {
-      const p = projectsList[index];
       setHoveredIndex(index);
-      setLeftContent(p.image, p.name, p.desc);
-      setActiveProject(index, projectsList.length);
     },
-    [setLeftContent, setActiveProject]
+    []
   );
 
   const handleLeave = useCallback(() => {
