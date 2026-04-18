@@ -85,23 +85,20 @@ export default function Projects() {
   const router = useRouter();
 
   useEffect(() => {
-    // Set a static hero for the Projects list page
-    setLeftContent(
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2564&auto=format&fit=crop",
-      "Projects",
-      "A collection of AI-driven systems and autonomous workflows."
-    );
+    const first = projectsList[0];
+    setLeftContent(first.image, first.name, first.desc);
     setActiveProject(0, projectsList.length);
     return () => clearActiveProject();
   }, [setLeftContent, setActiveProject, clearActiveProject]);
 
   const handleEnter = useCallback(
     (index: number) => {
+      const p = projectsList[index];
       setHoveredIndex(index);
-      // Only updating active index for the dot indicators
+      setLeftContent(p.image, p.name, p.desc);
       setActiveProject(index, projectsList.length);
     },
-    [setActiveProject]
+    [setLeftContent, setActiveProject]
   );
 
   const handleLeave = useCallback(() => {
