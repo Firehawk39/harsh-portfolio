@@ -46,6 +46,27 @@ export function LeftPanel() {
 
       {/* Bottom Content Area */}
       <div className="absolute bottom-7 left-7 right-7 z-20 flex flex-col gap-4">
+        {/* Dot indicators — bottom center, only on projects page */}
+        {isProjectsPage && totalProjects > 0 && (
+          <div className="flex items-center justify-center gap-1.5">
+            {Array.from({ length: totalProjects }).map((_, i) => (
+              <motion.div
+                key={i}
+                animate={{
+                  opacity: i === activeProjectIndex ? 1 : 0.35,
+                  scale: i === activeProjectIndex ? 1.2 : 0.8,
+                  backgroundColor:
+                    i === activeProjectIndex
+                      ? "rgba(255,255,255,1)"
+                      : "rgba(255,255,255,0.55)",
+                }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="w-1.5 h-1.5 rounded-full bg-white"
+              />
+            ))}
+          </div>
+        )}
+
         {/* Caption stack */}
         <div className="flex flex-col gap-1.5">
           <AnimatePresence mode="popLayout">

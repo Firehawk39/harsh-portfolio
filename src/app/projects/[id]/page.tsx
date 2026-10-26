@@ -31,7 +31,11 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
 
   useEffect(() => {
     if (!project) return;
-    setLeftContent(project.image, project.name, project.category);
+    setLeftContent(
+      "/projects.jpg",
+      "Projects",
+      "A collection of AI-driven systems and autonomous workflows."
+    );
     return () => clearActiveProject();
   }, [project, setLeftContent, clearActiveProject]);
 
@@ -151,13 +155,24 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         </motion.div>
       ))}
 
-      {/* What's Next */}
-      <Reveal delay={0.5}>
-        <div className="mb-16">
-          <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4">What&apos;s Next?</h2>
-          <p className="text-foreground/75 text-base leading-relaxed">{project.whatNext}</p>
-        </div>
-      </Reveal>
+      {/* What's Next / Roadmap */}
+      {project.whatNext && (
+        <Reveal delay={0.5}>
+          <div className="mb-14">
+            <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-5">
+              {project.whatNext.title}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {project.whatNext.items.map((item) => (
+                <div key={item.label} className="p-4 bg-muted/30 rounded-2xl border border-border/20">
+                  <h3 className="text-sm font-bold mb-1">{item.label}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      )}
 
       {/* Divider */}
       <Reveal delay={0.55}>

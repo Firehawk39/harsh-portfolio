@@ -18,16 +18,49 @@ export type Project = {
   desc: string;            
   overview: string;        
   sections: ProjectSection[];
-  whatNext: string;        
+  whatNext?: {
+    title: string;
+    items: { label: string; detail: string }[];
+  };
 };
 
 export const projectsList: Project[] = [
+  {
+    id: "velora",
+    name: "Velora – Cinematic Music Experience",
+    category: "Native iOS App",
+    year: "2026",
+    isNew: true,
+    tags: ["Swift", "iOS", "Navidrome", "UI/UX"],
+    image: "https://images.unsplash.com/photo-1614680376593-902f74a14262?q=80&w=2574&auto=format&fit=crop",
+    desc: "An elegantly designed, native iOS music ecosystem built for a visually stunning listening experience.",
+    overview:
+      "Velora is a highly polished, native iOS music player designed to transform personal music libraries into a cinematic listening experience. It features dynamic glassmorphism and real-time artist imagery resolution to create immersive visual environments.",
+    sections: [
+      {
+        heading: "Cinematic Glassmorphism",
+        body: "A custom-built interface featuring dynamic blur effects and translucent materials that adapt seamlessly across landscape and portrait orientations.",
+        quote: {
+          text: "Independent music players can rival and exceed commercial platforms in beauty and usability.",
+          author: "Design Philosophy",
+        },
+      },
+      {
+        heading: "Dynamic Contextual Backdrops",
+        body: "Real-time artist imagery resolution via Fanart.tv and MusicBrainz creates immersive, edge-to-edge visual environments based on what you're listening to.",
+        bullets: [
+          { label: "Native Swift", detail: "Buttery-smooth transitions and fluid navigation engineered natively in Swift." },
+          { label: "Navidrome Server", detail: "Deep integration with Navidrome for personal music library streaming." },
+        ],
+      },
+    ],
+  },
   {
     id: "personaflow",
     name: "PersonaFlow – AI Wellness Companion",
     category: "Agentic AI & Cloud",
     year: "2025",
-    isNew: true,
+    isNew: false,
     tags: ["n8n", "Supabase", "Ollama", "RAG", "Vercel"],
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop",
     desc: "Empathetic AI companion with long-term memory and privacy-first local orchestration.",
@@ -52,15 +85,13 @@ export const projectsList: Project[] = [
         ],
       },
     ],
-    whatNext:
-      "Expanding to native mobile integration with local biometric feedback to correlate physiological stress signals with AI sentiment analysis.",
   },
   {
     id: "nutribud",
     name: "NutriBud – AI Nutrition Assistant",
     category: "Vision AI & Fine-Tuning",
     year: "2025",
-    isNew: true,
+    isNew: false,
     tags: ["LLAMA 3.2 Vision", "Unsloth", "QLoRA", "n8n", "Hugging Face"],
     image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2653&auto=format&fit=crop",
     desc: "Fine-tuned LLAMA 3.2 Vision bot for localized Indian meal analysis with 50% higher accuracy.",
@@ -85,8 +116,6 @@ export const projectsList: Project[] = [
         ],
       },
     ],
-    whatNext:
-      "Scaling the dataset to include rare regional cuisines and integrating real-time grocery list generation based on micronutrient deficiencies.",
   },
   {
     id: "ai-rig",
@@ -118,7 +147,5 @@ export const projectsList: Project[] = [
         ],
       },
     ],
-    whatNext:
-      "Next: Upgrading to water-cooling for higher sustained clock speeds and implementing automated workload balancing between training and monetization tasks.",
   },
 ];

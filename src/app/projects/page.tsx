@@ -85,13 +85,8 @@ export default function Projects() {
   const router = useRouter();
 
   useEffect(() => {
-    // Set a static hero for the Projects list page
-    setLeftContent(
-      "/projects.jpg",
-      "Projects",
-      "A collection of AI-driven systems and autonomous workflows."
-    );
-    // Removing setActiveProject call to hide the carousel dots
+    // Initial hero for Projects page
+    setLeftContent("/projects.jpg", "Projects", "A collection of AI-driven systems and autonomous workflows.");
     return () => clearActiveProject();
   }, [setLeftContent, clearActiveProject]);
 
