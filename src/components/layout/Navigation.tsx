@@ -76,8 +76,8 @@ export function Navigation() {
         <div className="flex items-center gap-4 ml-4">
           <Magnetic>
             <a 
-              href="/pdf/cv.pdf"
-              download="Harsh_Solanki_CV.pdf"
+              href="/pdf/Harsh_Solanki_AI_Engineer_Resume.pdf"
+              download="Harsh_Solanki_AI_Engineer_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex h-10 items-center justify-center rounded-full bg-foreground text-background px-6 text-sm font-bold transition-all hover:bg-accent hover:shadow-[0_0_20px_var(--accent)] active:scale-95"
